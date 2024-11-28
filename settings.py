@@ -20,3 +20,12 @@ LOG_LEVEL = "INFO"
 
 # Путь к журналу диагностики
 DIAGNOSTICS_LOG = Path(BASE_DIR) / "logs" / "diagnostics.log"
+
+from pathlib import Path
+
+# Пути к отчетам (изменено для указания на корень проекта)
+DEBUG_REPORT_PATH = Path(__file__).resolve().parent.parent / "debug_report.txt"  # Путь к отчету диагностики
+TEST_REPORT_PATH = Path(__file__).resolve().parent.parent / "test_report.txt"    # Путь к отчету тестирования
+# Путь к базе сообщений (файл находится в папке ai_diagnostics)
+MESSAGES_DB_PATH = Path(__file__).resolve().parent / "messages_db.json"  # Путь к базе сообщений
+
