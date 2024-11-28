@@ -1,13 +1,15 @@
 import os
 from pathlib import Path
 
+# Определяем базовый путь к корню проекта
+BASE_DIR = Path(__file__).resolve().parent.parent  # Путь к корню проекта
+
 # Пути к файлам и директориям
-BASE_DIR = "user/data"
-WG_CONFIG_DIR = os.path.join(BASE_DIR, "wg_configs")
-QR_CODE_DIR = os.path.join(BASE_DIR, "qrcodes")
-STALE_CONFIG_DIR = os.path.join(BASE_DIR, "usr_stale_config")
-USER_DB_PATH = os.path.join(BASE_DIR, "user_records.json")
-IP_DB_PATH = os.path.join(BASE_DIR, "ip_records.json")
+WG_CONFIG_DIR = BASE_DIR / "user/data/wg_configs"
+QR_CODE_DIR = BASE_DIR / "user/data/qrcodes"
+STALE_CONFIG_DIR = BASE_DIR / "user/data/usr_stale_config"
+USER_DB_PATH = BASE_DIR / "user/data/user_records.json"
+IP_DB_PATH = BASE_DIR / "user/data/ip_records.json"
 SERVER_CONFIG_FILE = "/etc/wireguard/wg0.conf"  # Путь к конфигурационному файлу сервера WireGuard
 PARAMS_FILE = "/etc/wireguard/params"           # Путь к файлу с параметрами WireGuard
 
@@ -15,17 +17,13 @@ PARAMS_FILE = "/etc/wireguard/params"           # Путь к файлу с па
 DEFAULT_TRIAL_DAYS = 30                          # Базовый срок действия аккаунта в днях
 
 # Настройки для логирования
-LOG_FILE_PATH = os.path.join(BASE_DIR, "logs", "app.log")
+LOG_FILE_PATH = BASE_DIR / "user/data/logs/app.log"
 LOG_LEVEL = "INFO"
 
 # Путь к журналу диагностики
-DIAGNOSTICS_LOG = Path(BASE_DIR) / "logs" / "diagnostics.log"
+DIAGNOSTICS_LOG = BASE_DIR / "user/data/logs/diagnostics.log"
 
-from pathlib import Path
-
-# Пути к отчетам (изменено для указания на корень проекта)
-DEBUG_REPORT_PATH = Path(__file__).resolve().parent.parent / "debug_report.txt"  # Путь к отчету диагностики
-TEST_REPORT_PATH = Path(__file__).resolve().parent.parent / "test_report.txt"    # Путь к отчету тестирования
-# Путь к базе сообщений (файл находится в папке ai_diagnostics)
-MESSAGES_DB_PATH = Path(__file__).resolve().parent / "messages_db.json"  # Путь к базе сообщений
-
+# Пути к отчетам
+DEBUG_REPORT_PATH = BASE_DIR / "debug_report.txt"  # Путь к отчету диагностики
+TEST_REPORT_PATH = BASE_DIR / "test_report.txt"    # Путь к отчету тестирования
+MESSAGES_DB_PATH = BASE_DIR / "ai_diagnostics/messages_db.json"  # Путь к базе сообщений
