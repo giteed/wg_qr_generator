@@ -1,2 +1,3 @@
 ai_assistant/prompts/
 temp/
+*.log
